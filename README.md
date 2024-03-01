@@ -1,66 +1,13 @@
-## Foundry
+## Solidity Applications Examples with Foundry
+Author: Willian Gonçalves Rios
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Features
+Diverse Examples: Explore a wide range of smart contracts covering different aspects of Ethereum development, including token standards, decentralized finance (DeFi) protocols, non-fungible tokens (NFTs), and more.
 
-Foundry consists of:
+Educational Resources: Each smart contract comes with detailed documentation and comments explaining its purpose, functionality, and key concepts used. These resources are designed to help developers of all levels understand and learn from the examples provided.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Easy to Use: Clone or fork this repository to quickly access and experiment with the smart contracts in your local development environment. You can easily deploy them to test networks or even the Ethereum mainnet.
 
-## Documentation
+## Getting started
+To get started, simply clone or fork this repository to your local machine, install the dependencies and enjoy. Remember, these are unaudited codes.
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
