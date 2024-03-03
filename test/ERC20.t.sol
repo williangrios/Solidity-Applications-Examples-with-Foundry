@@ -55,7 +55,4 @@ contract ERC20Test is Test{
         assertEq(balanceOf1, 200);
         assertEq(balanceOf3, 800);
     }
-
-
-
 }
