@@ -6,12 +6,12 @@ import {IERC20} from "./interfaces/IERC20.sol";
 contract ERC20 is IERC20 {
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
-    mapping (address => mapping (address => uint256)) public allowance;
+    mapping(address => mapping(address => uint256)) public allowance;
     string public name = "WR Token";
     string public symbol = "WRT";
     uint8 public decimals = 18;
-    
-    function transfer (address recipient, uint256 amount) external returns (bool){
+
+    function transfer(address recipient, uint256 amount) external returns (bool) {
         balanceOf[msg.sender] -= amount;
         balanceOf[recipient] += amount;
         emit Transfer(msg.sender, recipient, amount);
@@ -24,7 +24,7 @@ contract ERC20 is IERC20 {
         return true;
     }
 
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {
         allowance[sender][msg.sender] -= amount;
         balanceOf[sender] -= amount;
         balanceOf[recipient] += amount;
@@ -38,7 +38,7 @@ contract ERC20 is IERC20 {
         emit Transfer(address(0), msg.sender, amount);
     }
 
-    function burn(uint256 amount) external{
+    function burn(uint256 amount) external {
         balanceOf[msg.sender] -= amount;
         totalSupply -= amount;
         emit Transfer(msg.sender, address(0), amount);

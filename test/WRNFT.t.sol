@@ -20,7 +20,7 @@ contract WRNFTTest is Test {
 
     function testBurn() external {
         vm.prank(address(1));
-        wrNft.mint(address(2),1);
+        wrNft.mint(address(2), 1);
         vm.prank(address(2));
         wrNft.burn(1);
         uint256 balance = wrNft.balanceOf(address(2));

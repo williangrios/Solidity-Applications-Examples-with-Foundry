@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import {Test, console} from "forge-std/Test.sol";
 import {IterableMapping} from "../src/IterableMapping.sol";
 
-contract TestIterableMapping is Test{
+contract TestIterableMapping is Test {
     using IterableMapping for IterableMapping.Map;
 
     IterableMapping.Map private map;
@@ -20,7 +20,7 @@ contract TestIterableMapping is Test{
         map.set(address(4), 300);
         map.set(address(5), 400);
 
-        for(uint i = 0; i<map.size(); i++) {
+        for (uint256 i = 0; i < map.size(); i++) {
             address _key = map.getKeyAtIndex(i);
             uint256 _value = map.get(_key);
             console.log("Iterating", i, _value);
@@ -28,9 +28,9 @@ contract TestIterableMapping is Test{
 
         map.remove(address(2));
         uint256 newSize = map.size();
-        assertEq(newSize , 4);
-        assertEq(map.getKeyAtIndex(0) , address(1));
-        assertEq(map.getKeyAtIndex(1) , address(5));
-        assertEq(map.getKeyAtIndex(2) , address(3));
+        assertEq(newSize, 4);
+        assertEq(map.getKeyAtIndex(0), address(1));
+        assertEq(map.getKeyAtIndex(1), address(5));
+        assertEq(map.getKeyAtIndex(2), address(3));
     }
 }

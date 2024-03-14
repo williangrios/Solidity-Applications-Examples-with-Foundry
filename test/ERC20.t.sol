@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import {Test} from "forge-std/Test.sol";
 import {ERC20} from "../src/ERC20.sol";
 
-contract ERC20Test is Test{
+contract ERC20Test is Test {
     ERC20 public erc20;
 
     function setUp() external {
@@ -29,7 +29,7 @@ contract ERC20Test is Test{
     function testApprove() external {
         vm.prank(address(1));
         erc20.approve(address(2), 1000);
-        uint256 allowance = erc20.allowance(address(1),address(2));
+        uint256 allowance = erc20.allowance(address(1), address(2));
         assertEq(allowance, 1000);
     }
 

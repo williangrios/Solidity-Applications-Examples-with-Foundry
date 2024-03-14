@@ -1,7 +1,7 @@
 // SDPX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-library IterableMapping{
+library IterableMapping {
     struct Map {
         address[] keys;
         mapping(address => uint256) values;
@@ -9,7 +9,7 @@ library IterableMapping{
         mapping(address => bool) inserted;
     }
 
-    function get(Map storage map, address key) public view returns (uint) {
+    function get(Map storage map, address key) public view returns (uint256) {
         return map.values[key];
     }
 
@@ -24,7 +24,7 @@ library IterableMapping{
     function set(Map storage map, address key, uint256 val) public {
         if (map.inserted[key]) {
             map.values[key] = val;
-        }else {
+        } else {
             map.inserted[key] = true;
             map.values[key] = val;
             map.indexOf[key] = map.keys.length;
@@ -33,7 +33,7 @@ library IterableMapping{
     }
 
     function remove(Map storage map, address key) public {
-        if (!map.inserted[key]){
+        if (!map.inserted[key]) {
             return;
         }
         delete map.inserted[key];

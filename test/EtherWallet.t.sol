@@ -19,7 +19,7 @@ contract EtherWalletTests is Test {
     }
 
     function testSuccessfulWithdraw() external {
-        (bool success, ) = address(etherWallet).call{value: 100}("");
+        (bool success,) = address(etherWallet).call{value: 100}("");
         etherWallet.withdraw(50);
         uint256 balance = etherWallet.getBalance();
         assertEq(balance, 50);

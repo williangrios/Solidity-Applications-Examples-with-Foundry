@@ -1,10 +1,11 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
+
 import {Test} from "forge-std/Test.sol";
 import {MultiSigWallet} from "../src/MultiSigWallet.sol";
 import "forge-std/console.sol";
 
-contract MultiSigWalletTests is Test{
+contract MultiSigWalletTests is Test {
     MultiSigWallet public multiSigWallet;
     address[] public addresses;
 
@@ -27,7 +28,8 @@ contract MultiSigWalletTests is Test{
         vm.startPrank(address(1));
         bytes memory data = abi.encodePacked("Transaction to me");
         multiSigWallet.submitTransaction(address(1), 1 ether, data);
-        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) = multiSigWallet.getTransaction(0);
+        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) =
+            multiSigWallet.getTransaction(0);
         assertEq(_to, address(1));
         assertEq(_value, 1 ether);
         assertEq(_data, abi.encodePacked("Transaction to me"));
@@ -40,7 +42,8 @@ contract MultiSigWalletTests is Test{
         bytes memory data = abi.encodePacked("Transaction to me");
         multiSigWallet.submitTransaction(address(1), 1 ether, data);
         multiSigWallet.confirmTransaction(0);
-        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) = multiSigWallet.getTransaction(0);
+        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) =
+            multiSigWallet.getTransaction(0);
         assertEq(_to, address(1));
         assertEq(_value, 1 ether);
         assertEq(_data, abi.encodePacked("Transaction to me"));
@@ -67,7 +70,8 @@ contract MultiSigWalletTests is Test{
         multiSigWallet.submitTransaction(address(1), 1 ether, data);
         multiSigWallet.confirmTransaction(0);
         multiSigWallet.revokeConfirmation(0);
-        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) = multiSigWallet.getTransaction(0);
+        (address _to, uint256 _value, bytes memory _data, bool _executed, uint256 _numConfirmations) =
+            multiSigWallet.getTransaction(0);
         assertEq(_to, address(1));
         assertEq(_value, 1 ether);
         assertEq(_data, abi.encodePacked("Transaction to me"));
